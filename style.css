@@ -1,0 +1,74 @@
+/* style.css */
+
+/* RESET e estilos gerais */
+*{
+    margin: 0; /* Remove margens padrao */
+    padding: 0; /*remove espaçamentos padrao */
+    box-sizing: border-box; /* Faz o padding ser incluido na largura total */
+}
+
+body {
+    font-family: arial, sans-serif; /*fonte limpa e facil de ler */
+    background-color: #f9f9f9; /* fundo claro para contraste */
+    color: #333; /* texto escuro, legivel */
+    padding: 20px; /* espaço ao redor do conteudo */
+}
+
+/* 2. Estiliza a seçao de FAQ */
+.faq {
+    max-width: 600px; /* largura maxima para manter o conteudo centralizado */
+    margin: 0 auto; /* centraliza a div na tela */
+    background-color: #fff; /* fundo branco para destaque */
+    border-radius: 8px; /* bordas arredondadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* sombra suave */
+    overflow: hidden; /* garante que nada vaze para fora */
+}
+
+/* 3. Cada item de FAQ */
+.faq-item {
+    border-bottom: 1px solid #eee; /* Linha leve entre itens */
+}
+
+/* 4. Pergunta */
+.question {
+    padding: 15px; /* Espaço interno para clicar confortavelmente */
+    font-size: 1.1rem; /* Texto um pouco maior */
+    cursor: pointer; /* Indica que é clicavel */
+    position: relative; /* Para posicionar icone depois*/
+}
+
+/* 5. Icone de abrir/fechar(usando pseudo-elemento) */
+.question::after {
+    content: '+'; /*sinal de "mais" quando fechado */
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+}
+
+/* Quando a resposta estiver aberta, trocamos o sinal */
+.question.active::after {
+    content: '-'; /*sinal de "menos" quando aberto */
+    transform: translateY(-50%) rotate(180deg); /* Rotaciona o sinal */
+}
+
+/*6. Resposta */
+.answer {
+    padding: 0 15px 15px; /* Espaço interno para a resposta */
+    font-size: 1rem;
+    line-height: 1.4;
+    transition: max-height 0.3s ease, opacity 0.3s ease; /* Transição suave */
+    opacity: 1; /*Opacity Completa */
+    max-height: 500px; /*Altura maxima quando visivel */
+    overflow: hidden; /* Evita mostrar conteudo alem da altura */
+}
+
+/* 7. classe que esconte a resposta */
+.hidden {
+    oppacity: 0; /* Transparente*/
+    max-height: 0; /* Fecha a altura */
+    padding-top: 0; /* Remove padding superior para fechar certinho */
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
